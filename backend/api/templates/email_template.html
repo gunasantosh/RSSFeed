@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 640px;
+      margin: 30px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .banner {
+      background: linear-gradient(135deg, #0073e6, #005bb5);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .content {
+      padding: 20px;
+    }
+    .article {
+      background: #f9f9f9;
+      border-left: 4px solid #0073e6;
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .article-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #222;
+    }
+    .article-link {
+      font-size: 14px;
+      color: #0073e6;
+      text-decoration: none;
+    }
+    .article-summary {
+      font-size: 14px;
+      color: #555;
+      margin-top: 8px;
+    }
+    .footer {
+      background: #f1f1f1;
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+      color: #666;
+    }
+    .footer a {
+      color: #0073e6;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="banner">
+      🌟 NewsCrew Weekly Newsletter - {{ topic }} 🌟
+    </div>
+
+    <div class="content">
+      {% for article in articles %}
+        <div class="article">
+          <div class="article-title">{{ article.title }}</div>
+          <div><a class="article-link" href="{{ article.link }}" target="_blank">Read Full Article</a></div>
+          <div class="article-summary">{{ article.summary|safe }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="footer">
+      You are receiving this email because you subscribed to NewsCrew.<br>
+      <a href="{{ unsubscribe_url }}">Unsubscribe</a> |
+      <a href="{{ website_url }}">Visit Website</a>
+    </div>
+  </div>
+</body>
+</html>
